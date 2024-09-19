@@ -10,7 +10,7 @@ import ru.netology.dao_hibernate.services.DAOService;
 import java.util.List;
 
 @RestController
-@RequestMapping("persons")
+@RequestMapping("/persons")
 public class DAOController {
 
     private final DAOService daoService;
@@ -19,7 +19,7 @@ public class DAOController {
         this.daoService = daoService;
     }
 
-    @GetMapping("by-city")
+    @GetMapping("/by-city")
     public List<Person> personByCity(@RequestParam("city") String city) {
         return daoService.getPersonByCity(city);
     }
