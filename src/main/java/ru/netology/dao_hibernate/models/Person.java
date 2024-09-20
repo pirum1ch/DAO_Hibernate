@@ -6,18 +6,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Entity
-@Builder
-@Data
+import java.io.Serializable;
+
+@Entity(name = "Person")
+@Getter
+@Setter
 @Table(name = "persons")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -37,6 +36,17 @@ public class Person {
     private String phone_number;
 
     @Column(name = "city_of_living")
-    private String city_of_living;
+    private String city;
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", phone_number='" + phone_number + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }
