@@ -17,15 +17,17 @@ public class DAOService {
         this.daoRepo = daoRepo;
     }
 
-    public List<Person> getAll(){
-        return  daoRepo.findAll();
+    public List<Person> getAll() {
+        return daoRepo.findAll();
     }
+
     public List<Person> getPersonByCity(String city) {
         return daoRepo.findAllByCity(city);
     }
 
-    public List<Person> getPersonByAge(int age){
-        return daoRepo.findAllByAgeIsLessThanOrderByAgeDesc(age);}
+    public List<Person> getPersonByAge(int age) {
+        return daoRepo.findAllByAgeIsLessThanOrderByAgeDesc(age);
+    }
 
     public Person getPersonByNameAndSurname(String name, String surname) {
         return daoRepo.findAllByNameAndSurname(name, surname).orElseThrow();
