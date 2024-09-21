@@ -17,7 +17,9 @@ public class DAOService {
         this.daoRepo = daoRepo;
     }
 
-
+    public List<Person> getAll(){
+        return  daoRepo.findAll();
+    }
     public List<Person> getPersonByCity(String city) {
         return daoRepo.findAllByCity(city);
     }

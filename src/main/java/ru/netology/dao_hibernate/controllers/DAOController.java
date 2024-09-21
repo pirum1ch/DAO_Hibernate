@@ -1,5 +1,6 @@
 package ru.netology.dao_hibernate.controllers;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,13 @@ public class DAOController {
     public DAOController(DAOService daoService) {
         this.daoService = daoService;
     }
+
+    @GetMapping("/")
+    public String allPerson(Model model) {
+        model.addAttribute("listPersons", daoService.getAll());
+        return "persons.html";
+    }
+
 
     @GetMapping("/by-city")
     public List<Person> personByCity(@RequestParam("city") String city) {

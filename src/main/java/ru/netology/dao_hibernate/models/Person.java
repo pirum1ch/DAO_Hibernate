@@ -33,7 +33,7 @@ public class Person implements Serializable {
     private int age;
 
     @Column(name = "phone_number")
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name = "city_of_living")
     private String city;
@@ -45,7 +45,7 @@ public class Person implements Serializable {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
-                ", phone_number='" + phone_number + '\'' +
+                ", phone_number='" + phoneNumber + '\'' +
                 ", city='" + city + '\'' +
                 '}';
     }
