@@ -20,17 +20,17 @@ public class DAOController {
     }
 
     @GetMapping("/by-city")
-    public List<Person> personByCity(@RequestParam("city") String city) {
-        return daoService.getPersonByCity(city);
+    public String personByCity(@RequestParam("city") String city) {
+        return daoService.getPersonByCity(city).toString();
     }
 
     @GetMapping("/by-age")
-    public List<Person> personByAge(@RequestParam("age") int age) {
-        return daoService.getPersonByAge(age);
+    public String personByAge(@RequestParam("age") int age) {
+        return daoService.getPersonByAge(age).toString();
     }
 
     @GetMapping("/by-name-surname")
-    public Person personByAge(@RequestParam("name") String name, @RequestParam("surname") String surname) {
-        return daoService.getPersonByNameAndSurname(name, surname);
+    public String personByAge(@RequestParam("name") String name, @RequestParam("surname") String surname) {
+        return daoService.getPersonByNameAndSurname(name, surname).toString();
     }
 }

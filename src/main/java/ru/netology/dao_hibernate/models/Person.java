@@ -47,6 +47,6 @@ public class Person implements Serializable {
                 ", age=" + age +
                 ", phone_number='" + phoneNumber + '\'' +
                 ", city='" + city + '\'' +
-                '}';
+                '}' + "\n";
     }
 }
