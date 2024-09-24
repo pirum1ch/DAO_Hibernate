@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity(name = "Person")
 @Getter
@@ -48,5 +49,18 @@ public class Person implements Serializable {
                 ", phone_number='" + phoneNumber + '\'' +
                 ", city='" + city + '\'' +
                 '}' + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age && Objects.equals(id, person.id) && Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(city, person.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surname, age, phoneNumber, city);
     }
 }
