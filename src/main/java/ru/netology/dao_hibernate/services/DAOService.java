@@ -30,7 +30,7 @@ public class DAOService {
     }
 
     public Person getPersonByNameAndSurname(String name, String surname) {
-        return daoRepo.findAllByNameAndSurname(name, surname).orElseThrow();
+        return daoRepo.findAllByNameAndSurname(name, surname).get();
     }
 
 
