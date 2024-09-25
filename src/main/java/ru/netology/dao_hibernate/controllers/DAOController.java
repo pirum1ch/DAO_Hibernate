@@ -2,7 +2,6 @@ package ru.netology.dao_hibernate.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import ru.netology.dao_hibernate.models.Person;
-import ru.netology.dao_hibernate.models.User;
 import ru.netology.dao_hibernate.services.DAOService;
 
 import java.util.List;
