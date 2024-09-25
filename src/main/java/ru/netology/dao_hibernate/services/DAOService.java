@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class DAOService {
 
-    private DaoRepo daoRepo;
+    private final DaoRepo daoRepo;
 
     public DAOService(DaoRepo daoRepo) {
         this.daoRepo = daoRepo;
@@ -22,8 +22,9 @@ public class DAOService {
         return daoRepo.findAllByCity(city);
     }
 
-    public List<Person> getPersonByAge(int age){
-        return daoRepo.findAllByAgeIsLessThanOrderByAgeDesc(age);}
+    public List<Person> getPersonByAge(int age) {
+        return daoRepo.findAllByAgeIsLessThanOrderByAgeDesc(age);
+    }
 
     public Person getPersonByNameAndSurname(String name, String surname) {
         return daoRepo.findAllByNameAndSurname(name, surname).orElseThrow();

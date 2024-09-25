@@ -6,7 +6,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.GenerationType;
-import lombok.*;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -41,27 +44,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", phone_number='" + phoneNumber + '\'' +
-                ", city='" + city + '\'' +
-                '}' + "\n";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age && Objects.equals(id, person.id) && Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(city, person.city);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, surname, age, phoneNumber, city);
+        return "Person{" + "id=" + id + ", name='" + name + '\'' + ", surname='" + surname + '\'' + ", age=" + age + ", phone_number='" + phoneNumber + '\'' + ", city='" + city + '\'' + '}' + "\n";
     }
 
 }
