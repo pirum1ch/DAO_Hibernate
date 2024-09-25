@@ -2,17 +2,13 @@ package ru.netology.dao_hibernate.controllers;
 
 
 import jakarta.annotation.security.RolesAllowed;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.netology.dao_hibernate.services.DAOService;
 
-@RestController("/secured")
-
+@RestController
+@RequestMapping("/secured")
 public class SecuredController {
 
     DAOService daoService;

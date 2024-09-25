@@ -39,7 +39,8 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "role")
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
     private Set<Roles> role = new HashSet<>();
 
@@ -56,5 +57,17 @@ public class User implements UserDetails {
     @Override
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}' + "\n";
     }
 }
