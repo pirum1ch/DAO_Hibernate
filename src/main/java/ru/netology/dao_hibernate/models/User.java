@@ -8,10 +8,12 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import ru.netology.dao_hibernate.enums.Roles;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-@Service
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -37,9 +39,13 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
+    @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
+    private Set<Roles> role = new HashSet<>();
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return role;
     }
 
     @Override
