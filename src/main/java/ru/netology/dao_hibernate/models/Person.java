@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity(name = "Person")
 @Getter
